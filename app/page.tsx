@@ -1,27 +1,62 @@
 import RobotWaving from "@/components/RobotWaving";
-import { GearIcon, BarsIcon, CubeIcon } from "@/components/Icons";
+import { GearIcon, BarsIcon, CubeIcon, Mesage } from "@/components/Icons";
 import ChatModal from "@/components/ChatModal";
+import dynamic from "next/dynamic";
+import Image from "next/image";
 
+// Lazy load the 3D scene to prevent SSR hydration errors
+const RobotScene = dynamic(() => import("../components/robot/Scene"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex items-center justify-center w-full h-screen text-cyan-400/50 font-mono">
+      Initializing AI Core...
+    </div>
+  ),
+});
 const navLinks = ["Servicios", "Nosotros", "Casos de Éxito"];
 
 const features = [
   {
-    icon: <GearIcon />,
-    title: "Automatización Eficiente",
+    icon: "🍔",
+    sector: "Sector Gastronómico",
+    title: "Pedidos Omnicanal Inteligentes",
     description:
-      "Automatización eficiente in consectatur adipiscing elit, sed do eiusmod products.",
+      "Agentes que toman órdenes por WhatsApp, aplican reglas de tu menú y envían el detalle estructurado directo a cocina sin errores humanos.",
   },
   {
-    icon: <BarsIcon />,
-    title: "Análisis Predictivo",
+    icon: "🏥",
+    sector: "Sector Salud y Clínicas",
+    title: "Gestión de Citas Autónoma",
     description:
-      "Análisis predictive coumpiting into platfornal touudaism, crails and maintaine dats.",
+      "Asistentes que consultan la disponibilidad de tus especialistas en tiempo real, agendan pacientes y envían recordatorios automáticos para reducir el ausentismo médico.",
   },
   {
-    icon: <CubeIcon />,
-    title: "Soluciones a Medida",
+    icon: "🛍️",
+    sector: "Sector Retail e Importadoras",
+    title: "Vendedor Consultivo 24/7",
     description:
-      "Soluciones a medida with our solutions are viorsitice, rendrined and requerement.",
+      "Conectamos tu inventario a un agente IA capaz de cotizar, recomendar productos estratégicos (up-selling) y cerrar ventas en milisegundos a cualquier hora de la madrugada.",
+  },
+  {
+    icon: "🏢",
+    sector: "Sector Inmobiliario",
+    title: "Broker Virtual Inmobiliario",
+    description:
+      "Califica a tus prospectos (leads) al instante, realiza un match exacto con tu catálogo de propiedades y agenda visitas físicas automáticamente para tus asesores humanos.",
+  },
+  {
+    icon: "✈️",
+    sector: "Sector Turismo y Agencias",
+    title: "Concierge Turístico Global",
+    description:
+      "Atiende a viajeros de todo el mundo en su idioma nativo, cotiza itinerarios complejos y resuelve dudas sobre visas o clima sin importar las diferencias de zona horaria.",
+  },
+  {
+    icon: "🎓",
+    sector: "Sector Educación",
+    title: "Orientador Académico IA",
+    description:
+      "Guía a miles de prospectos por tus procesos de admisión, mallas curriculares y becas simultáneamente, absorbiendo sin colapsar los picos altos de demanda estudiantil.",
   },
 ];
 
@@ -62,34 +97,45 @@ export default function Home() {
         </header>
 
         {/* Hero */}
-        <section className="grid lg:grid-cols-2 gap-10 items-center pt-16 pb-24">
-          <RobotWaving />
+        <section className="grid items-center gap-12 py-20 lg:grid-cols-2">
+          <div className="relative flex items-center justify-center">
+            <div className="relative aspect-square w-full max-w-[650px]">
+              <Image
+                src="/ImagenOfi.png"
+                alt="Robot"
+                fill
+                priority
+                className="object-contain"
+              />
+            </div>
+          </div>
 
-          <div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight text-white">
-              Inteligencia
+          <div className="max-w-xl">
+            <h1 className="text-4xl font-extrabold leading-tight text-white sm:text-5xl">
+              Conectamos
               <br />
-              Artificial que
+              tus Sistemas
               <br />
-              <span className="text-isia-teal">Impula tu Negocio</span>
+              <span className="text-isia-teal">Automatizamos tus Metas.</span>
             </h1>
 
-            <p className="mt-6 text-white/60 max-w-md leading-relaxed">
-              isIA agencia es valor sit amet, consectetur adipiscing elit,
-              sed dii nonommy nibh euismod commodo consetetursut valoores
-              minteliguntat netnt-dobr agolulantus.
+            <p className="mt-6 leading-relaxed text-white/60">
+              En isIA aplicamos Ingeniería de automatización con IA que conectan
+              tus sistemas y ejecutan tus procesos diarios. Sin cambiar tus
+              sistemas, diseñamos soluciones que se adaptan a tus sueños.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href="#"
-                className="rounded-full bg-isia-teal text-[#06231c] font-semibold px-6 py-3 hover:brightness-95 transition"
+                className="rounded-full bg-isia-teal px-6 py-3 font-semibold text-[#06231c] transition hover:brightness-95"
               >
                 Descubre Cómo
               </a>
+
               <a
                 href="#"
-                className="rounded-full border border-white/25 text-white font-semibold px-6 py-3 hover:bg-white/10 transition"
+                className="rounded-full border border-white/20 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
               >
                 Ver Soluciones
               </a>
@@ -98,15 +144,18 @@ export default function Home() {
         </section>
 
         {/* Feature cards */}
-        <section className="grid sm:grid-cols-3 gap-6 pb-20">
+        <section className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 pb-20">
           {features.map((feature) => (
             <div
               key={feature.title}
               className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:bg-white/[0.06] transition-colors"
             >
-              <div className="w-11 h-11 rounded-xl bg-isia-teal/10 flex items-center justify-center mb-5">
+              <div className="w-11 h-11 rounded-xl bg-isia-teal/10 flex items-center justify-center mb-5 text-xl">
                 {feature.icon}
               </div>
+              <p className="text-isia-teal text-xs font-semibold uppercase tracking-wide mb-2">
+                {feature.sector}
+              </p>
               <h3 className="text-white font-semibold text-lg mb-2">
                 {feature.title}
               </h3>

@@ -1,6 +1,12 @@
 export function GearIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6" stroke="#3ee6c4" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      className="w-6 h-6"
+      stroke="#3ee6c4"
+      strokeWidth="1.8"
+    >
       <path
         d="M12 15a3 3 0 100-6 3 3 0 000 6z"
         strokeLinecap="round"
@@ -17,7 +23,13 @@ export function GearIcon() {
 
 export function BarsIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6" stroke="#3ee6c4" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      className="w-6 h-6"
+      stroke="#3ee6c4"
+      strokeWidth="1.8"
+    >
       <path d="M4 20V12" strokeLinecap="round" />
       <path d="M12 20V6" strokeLinecap="round" />
       <path d="M20 20V9" strokeLinecap="round" />
@@ -28,9 +40,41 @@ export function BarsIcon() {
 
 export function CubeIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6" stroke="#3ee6c4" strokeWidth="1.8">
-      <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M12 12l8-4.5M12 12v9M12 12L4 7.5" strokeLinecap="round" strokeLinejoin="round" />
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      className="w-6 h-6"
+      stroke="#3ee6c4"
+      strokeWidth="1.8"
+    >
+      <path
+        d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 12l8-4.5M12 12v9M12 12L4 7.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function Mesage() {
+  return (
+    <svg
+      xmlns="http://w3.org"
+      width="48"
+      height="48"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#000000"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
     </svg>
   );
 }

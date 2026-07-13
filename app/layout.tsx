@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "isIA — Inteligencia Artificial que Impulsa tu Negocio",
+  title: "isIA — Agentes de IA que automatizan la operación de tu empresa 24/7",
   description:
-    "isIA agencia de inteligencia artificial: automatización, análisis predictivo y soluciones a medida para impulsar tu negocio.",
+    "Construimos agentes de IA que conectan tus sistemas y automatizan",
 };
 
 export default function RootLayout({
