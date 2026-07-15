@@ -43,7 +43,7 @@ export default function Scene() {
         </Suspense>
 
         {/* Post-processing for glowing eyes */}
-        <EffectComposer disableNormalPass>
+        <EffectComposer enableNormalPass={false}>
           <Bloom luminanceThreshold={1} mipmapBlur intensity={1.2} levels={8} />
         </EffectComposer>
       </Canvas>
